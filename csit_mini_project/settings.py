@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@xn2t8df-un(oib!*wz04ouq^0u=w&prx$=_-muwp2!jqsb7a^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://warm-wave-74221.herokuapp.com/']
 
