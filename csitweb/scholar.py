@@ -4,7 +4,7 @@ import lxml
 import os
 import json
 from unittest import result
-from firebase import firebase
+# from firebase import firebase
 
 headers = {
     'User-agent':
@@ -51,11 +51,11 @@ def get_timetable1(url):
         "table", {"border": "1", "cellspacing": "0", "cellpadding": "0"})
     return str(tb[0]).replace("¨Ñ¹·Ãì", "จันทร์").replace("ÍÑ§¤ÒÃ", "อังคาร").replace("¾Ø¸", "พุธ").replace("¾ÄËÑÊº´Õ","พฤหัสบดี").replace("ÈØ¡Ãì","ศุกร์").replace("ÍÒ·ÔµÂì","อาทิตย์").replace("àÊÒÃì","เสาร์")
 
-def getData():
-    url = 'https://csitproject-a3814-default-rtdb.asia-southeast1.firebasedatabase.app/'
-    messenger = firebase.FirebaseApplication(url,None)
-    result = messenger.get('/Wansuree_Massagram/',None)
-    return result['status']
+# def getData():
+#     url = 'https://csitproject-a3814-default-rtdb.asia-southeast1.firebasedatabase.app/'
+#     messenger = firebase.FirebaseApplication(url,None)
+#     result = messenger.get('/Wansuree_Massagram/',None)
+#     return result['status']
 # article = get_articles()
 # print(len(data))
 # print(data)
