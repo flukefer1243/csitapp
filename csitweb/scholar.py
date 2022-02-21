@@ -4,6 +4,7 @@ import lxml
 import os
 import json
 from unittest import result
+import pyrebase
 # from firebase import firebase
 
 headers = {
@@ -51,11 +52,21 @@ def get_timetable1(url):
         "table", {"border": "1", "cellspacing": "0", "cellpadding": "0"})
     return str(tb[0]).replace("¨Ñ¹·Ãì", "จันทร์").replace("ÍÑ§¤ÒÃ", "อังคาร").replace("¾Ø¸", "พุธ").replace("¾ÄËÑÊº´Õ","พฤหัสบดี").replace("ÈØ¡Ãì","ศุกร์").replace("ÍÒ·ÔµÂì","อาทิตย์").replace("àÊÒÃì","เสาร์")
 
-# def getData():
-#     url = 'https://csitproject-a3814-default-rtdb.asia-southeast1.firebasedatabase.app/'
-#     messenger = firebase.FirebaseApplication(url,None)
-#     result = messenger.get('/Wansuree_Massagram/',None)
-#     return result['status']
+def getData():
+    config = {
+        "apiKey": "AIzaSyA952ethtCSD2FZsX2rABd6FzsPttYX0ws",
+        "authDomain": "csitproject-a3814.firebaseapp.com",
+        "databaseURL": "https://csitproject-a3814-default-rtdb.asia-southeast1.firebasedatabase.app",
+        "projectId": "csitproject-a3814",
+        "storageBucket": "csitproject-a3814.appspot.com",
+        "messagingSenderId": "26361500700",
+        "appId": "1:26361500700:web:0420b0ff86d117748d3bd9",
+        "measurementId": "G-VZQ1RJDWVC"
+    }
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    result = db.child("Wansuree_Massagram").child("status").get().val()
+    return result
 # article = get_articles()
 # print(len(data))
 # print(data)

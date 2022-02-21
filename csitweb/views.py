@@ -8,8 +8,7 @@ from csitweb import scholar, data, urls
 def index(request):
     name = request.GET['name']
     if name == 'wansuree':
-        status = "1"
-        # scholar.getData()
+        status = scholar.getData()
         # print(status)
         return render(request, "fontend/index.html", {'info': data.wansuree[0], 'education': data.wansuree[1], 'status':status})
     elif name == 'prasart':

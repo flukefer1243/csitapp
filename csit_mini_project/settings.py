@@ -26,14 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@xn2t8df-un(oib!*wz04ouq^0u=w&prx$=_-muwp2!jqsb7a^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 ROOT_URLCONF = 'csit_mini_project.urls'
 
@@ -122,15 +125,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
 # Default primary key field type
