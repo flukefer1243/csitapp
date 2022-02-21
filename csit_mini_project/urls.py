@@ -25,4 +25,4 @@ urlpatterns = [
     path('articles/',include("csitweb.urls")),
     path('timetable/',include("csitweb.urls"))
 
-] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
